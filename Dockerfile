@@ -1,4 +1,9 @@
 FROM mcr.microsoft.com/devcontainers/universal:2-linux
-# Install the xz-utils package
+
+# Install Python and pip
 RUN apt-get update && \
-    pip install django
+    apt-get install -y python python-pip && \
+    apt-get clean
+
+# Install Django
+RUN pip install django
